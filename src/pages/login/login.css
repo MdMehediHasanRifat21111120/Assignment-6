@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap");
+
+:root {
+  --amber: #f5a623;
+  --amber-dim: rgba(245, 166, 35, 0.15);
+  --amber-glow: rgba(245, 166, 35, 0.08);
+  --text-bright: rgba(255, 220, 140, 0.9);
+  --text-mid: rgba(255, 210, 130, 0.5);
+  --text-dim: rgba(255, 210, 130, 0.25);
+  --bg-dark: #130f08;
+  --bg-card: #1c1710;
+  --border: rgba(255, 180, 60, 0.12);
+  --border-hover: rgba(255, 180, 60, 0.3);
+}
+
+/* ── Wrapper ── */
+.login-wrapper {
+  font-family: "DM Sans", sans-serif;
+  min-height: 100vh;
+  background: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-image: radial-gradient(
+    ellipse 60% 50% at 50% 0%,
+    rgba(245, 166, 35, 0.07) 0%,
+    transparent 70%
+  );
+}
+
+/* ── Card ── */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow:
+    0 0 60px rgba(245, 166, 35, 0.05),
+    0 20px 60px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top shimmer line */
+.login-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--amber), transparent);
+  opacity: 0.5;
+}
+
+/* ── Brand ── */
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.25rem;
+}
+
+.login-flame {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #f5a623, #c0620a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 0 14px rgba(245, 166, 35, 0.4);
+}
+
+.login-brand-name {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-bright);
+}
+
+.login-badge {
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--amber-dim);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  border-radius: 100px;
+  padding: 0.15rem 0.5rem;
+}
+
+/* ── Heading ── */
+.login-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.65rem;
+  color: var(--text-bright);
+  line-height: 1.2;
+  margin-bottom: -0.5rem;
+}
+
+.login-sub {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+}
+
+/* ── Form ── */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 0.25rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  position: relative;
+}
+
+.input-group label {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+}
+
+.input-group input {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.88rem;
+  color: var(--text-bright);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.input-group input::placeholder {
+  color: var(--text-dim);
+}
+
+.input-group input:focus {
+  border-color: rgba(245, 166, 35, 0.45);
+  background: rgba(245, 166, 35, 0.04);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.08);
+}
+
+.forgot {
+  font-size: 0.72rem;
+  color: var(--amber);
+  align-self: flex-end;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  margin-top: -0.1rem;
+}
+
+.forgot:hover {
+  opacity: 1;
+}
+
+/* ── Submit Button ── */
+.btn-amber {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1c1005;
+  background: linear-gradient(135deg, #f5a623, #d4811a);
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(245, 166, 35, 0.25);
+  transition:
+    box-shadow 0.2s,
+    transform 0.15s;
+  margin-top: 0.25rem;
+  letter-spacing: 0.03em;
+}
+
+.btn-amber:hover {
+  box-shadow: 0 0 32px rgba(245, 166, 35, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-amber:active {
+  transform: translateY(0);
+}
+
+/* ── Footer Text ── */
+.login-footer {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.register-link {
+  color: var(--amber);
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.register-link:hover {
+  opacity: 0.75;
+}
+
+/* ── Secure Badge ── */
+.login-secure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: -0.25rem;
+}
+
+.secure-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 8px var(--amber);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 6px var(--amber);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 14px var(--amber);
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+  }
+}

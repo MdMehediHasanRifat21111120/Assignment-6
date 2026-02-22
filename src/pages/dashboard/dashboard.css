@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap");
+
+:root {
+  --amber: #f5a623;
+  --amber-dim: rgba(245, 166, 35, 0.15);
+  --amber-glow: rgba(245, 166, 35, 0.08);
+  --text-bright: rgba(255, 220, 140, 0.9);
+  --text-mid: rgba(255, 210, 130, 0.5);
+  --text-dim: rgba(255, 210, 130, 0.2);
+  --bg-dark: #130f08;
+  --bg-card: #1c1710;
+  --border: rgba(255, 180, 60, 0.12);
+
+  --success: #34d399;
+  --success-dim: rgba(52, 211, 153, 0.12);
+  --warn: #fbbf24;
+  --warn-dim: rgba(251, 191, 36, 0.12);
+}
+
+/* ── Wrapper ── */
+.dashboard-wrapper {
+  font-family: "DM Sans", sans-serif;
+  min-height: 100vh;
+  background: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  background-image: radial-gradient(
+    ellipse 60% 50% at 50% 0%,
+    rgba(245, 166, 35, 0.06) 0%,
+    transparent 70%
+  );
+}
+
+/* ── Orbs ── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.db-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(245, 166, 35, 0.06);
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.db-orb-2 {
+  width: 250px;
+  height: 250px;
+  background: rgba(200, 90, 10, 0.05);
+  bottom: 5%;
+  right: -60px;
+}
+
+/* ── Card ── */
+.dashboard-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2.5rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow:
+    0 0 60px rgba(245, 166, 35, 0.05),
+    0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* Top shimmer */
+.dashboard-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--amber), transparent);
+  opacity: 0.45;
+}
+
+/* ── Avatar ── */
+.db-avatar-wrap {
+  position: relative;
+  margin-top: 0.25rem;
+}
+
+.db-avatar-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(245, 166, 35, 0.3);
+  box-shadow: 0 0 20px rgba(245, 166, 35, 0.15);
+}
+
+.db-avatar-fallback {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f5a623, #c0620a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1c1005;
+  border: 2px solid rgba(245, 166, 35, 0.3);
+  box-shadow: 0 0 24px rgba(245, 166, 35, 0.2);
+}
+
+.db-avatar-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 24px;
+  height: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* ── User Info ── */
+.db-user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  text-align: center;
+}
+
+.db-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: var(--text-bright);
+  line-height: 1.2;
+}
+
+.db-email {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  letter-spacing: 0.02em;
+}
+
+/* ── Divider ── */
+.db-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Details ── */
+.db-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.db-detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.db-detail-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.db-detail-value {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  text-align: right;
+}
+
+/* UID truncate */
+.db-uid {
+  font-size: 0.72rem;
+  font-family: monospace;
+  color: var(--text-dim);
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Badges ── */
+.db-badge {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: 100px;
+  padding: 0.22rem 0.65rem;
+  border: 1px solid;
+}
+
+.db-badge-success {
+  color: var(--success);
+  background: var(--success-dim);
+  border-color: rgba(52, 211, 153, 0.25);
+}
+
+.db-badge-warn {
+  color: var(--warn);
+  background: var(--warn-dim);
+  border-color: rgba(251, 191, 36, 0.25);
+}
+
+/* ── Logout Button ── */
+.db-logout-btn {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1c1005;
+  background: linear-gradient(135deg, #f5a623, #d4811a);
+  border: none;
+  border-radius: 10px;
+  padding: 0.72rem;
+  width: 100%;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  box-shadow: 0 0 20px rgba(245, 166, 35, 0.25);
+  transition:
+    box-shadow 0.2s,
+    transform 0.15s;
+}
+
+.db-logout-btn:hover {
+  box-shadow: 0 0 32px rgba(245, 166, 35, 0.45);
+  transform: translateY(-1px);
+}
+
+.db-logout-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Secure Badge ── */
+.db-secure {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.db-secure-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 6px var(--success);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .dashboard-card {
+    padding: 2rem 1.5rem;
+    border-radius: 18px;
+  }
+}

@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap");
+
+:root {
+  --amber: #f5a623;
+  --amber-dim: rgba(245, 166, 35, 0.15);
+  --text-bright: rgba(255, 220, 140, 0.9);
+  --text-mid: rgba(255, 210, 130, 0.5);
+  --text-dim: rgba(255, 210, 130, 0.2);
+  --bg-card: #1c1710;
+  --border: rgba(255, 180, 60, 0.12);
+}
+
+/* ── Overlay ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 6, 2, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 999;
+  animation: fadeOverlay 0.2s ease;
+}
+
+@keyframes fadeOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Modal Box ── */
+.loading-modal {
+  font-family: "DM Sans", sans-serif;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 60px rgba(245, 166, 35, 0.05),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.loading-modal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--amber), transparent);
+  opacity: 0.5;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Spinner ── */
+.loading-spinner-wrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.loading-svg {
+  position: absolute;
+  inset: 0;
+  width: 72px;
+  height: 72px;
+  animation: rotateSvg 1.6s linear infinite;
+}
+
+@keyframes rotateSvg {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Track ring */
+.loading-track {
+  fill: none;
+  stroke: rgba(245, 166, 35, 0.1);
+  stroke-width: 3;
+}
+
+/* Spinning arc */
+.loading-spin {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 138;
+  stroke-dashoffset: 100;
+  filter: drop-shadow(0 0 4px var(--amber));
+}
+
+.loading-flame {
+  font-size: 1.4rem;
+  animation: flamePulse 1.6s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes flamePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.75;
+  }
+}
+
+/* ── Text ── */
+.loading-title {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--text-bright);
+  line-height: 1.2;
+}
+
+.loading-message {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+/* ── Dot pulse ── */
+.loading-dots {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+.ld {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  animation: dotBounce 1.2s ease-in-out infinite;
+}
+
+.ld:nth-child(1) {
+  animation-delay: 0s;
+}
+.ld:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.ld:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotBounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 8px var(--amber);
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 420px) {
+  .loading-modal {
+    padding: 2rem 1.5rem;
+  }
+}

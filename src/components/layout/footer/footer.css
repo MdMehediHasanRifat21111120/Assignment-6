@@ -1,0 +1,59 @@
+.footer-warm {
+    background: linear-gradient(to right, #1c1410, #261a0e);
+    border-top: 1px solid rgba(255,180,60,0.15);
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .footer-warm .dot-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .footer-warm .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255,180,60,0.4);
+  }
+
+  .footer-warm .dot.active {
+    background: #f5a623;
+    box-shadow: 0 0 8px #f5a623;
+  }
+
+  .footer-warm .tagline {
+    font-size: 0.78rem;
+    color: rgba(255,210,130,0.5);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .footer-warm nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer-warm nav a {
+    font-size: 0.78rem;
+    color: rgba(255,210,130,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-warm nav a:hover { color: #f5a623; }
+
+  .footer-warm .copy {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.15);
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(255,255,255,0.04);
+    margin: 0.5rem 0;
+  }
